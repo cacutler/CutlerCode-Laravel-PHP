@@ -1,51 +1,167 @@
 # Cutler Code Business Website
 
-This is the Laravel project source code for the Cutler Code website.
+## Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contact](#contact)
+- [Screenshots](#screenshots)
+- [Database Design](#database-design)
+- [RESTful Endpoints](#restful-endpoints)
+
+## Description
+
+This is a Laravel-based business website for Cutler Code, a software development company. The platform allows clients to submit project requests, view company services, and manage notifications. It features user authentication, an admin dashboard for request management, and a responsive frontend built with modern web technologies.
+
+## Features
+
+- User registration and authentication system
+- Project request submission form with detailed fields
+- Admin dashboard for managing client requests
+- Notification system for updates on requests
+- Responsive design optimized for desktop and mobile
+- Secure user sessions and role-based access control
+
+## Technologies
+
+- **Backend**: Laravel 13 (PHP Framework)
+- **Frontend**: Blade templates, Vite, JavaScript
+- **Database**: MySQL
+- **Styling**: CSS
+- **Testing**: PHPUnit
+- **Package Management**: Composer (PHP), NPM (JavaScript)
 
 ## Prerequisites
 
-This website runs on Laravel 13, which requires using at least version 8.3 of PHP and at least version 2.2 of Composer.  Make sure to install PHP and Composer with these versions or later before installing and setting up this project.  
+Before setting up the project, ensure you have the following installed:
 
-## Local Setup Instructions for Development
+- PHP >= 8.3
+- Composer >= 2.2
+- MySQL or compatible database server
+- Node.js and NPM (optional, for frontend asset compilation)
 
-1. Clone the repository and cd into the repository folder.
+## Installation
+
+Follow these steps to set up the project locally:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/CutlerCode/cutler-code.git
+   cd cutler-code
+   ```
+
+2. **Install PHP dependencies**:
+   ```bash
+   composer install
+   ```
+
+3. **Install Node.js dependencies** (optional, for frontend):
+   ```bash
+   npm install
+   ```
+
+4. **Environment configuration**:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Generate application key**:
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Database setup**:
+   - Create a MySQL database named `cutler_code`.
+   - Update the `.env` file with your database credentials.
+
+7. **Run database migrations**:
+   ```bash
+   php artisan migrate
+   ```
+
+8. **Build frontend assets** (optional):
+   ```bash
+   npm run build
+   ```
+
+## Configuration
+
+The application uses environment variables for configuration. Key settings in `.env`:
+
+- `APP_NAME`: Application name (default: Cutler Code)
+- `APP_ENV`: Environment (local, production)
+- `APP_KEY`: Application encryption key (generated automatically)
+- `APP_DEBUG`: Debug mode (true for development)
+- `DB_CONNECTION`: Database connection type (mysql)
+- `DB_HOST`: Database host
+- `DB_PORT`: Database port (default: 3306)
+- `DB_DATABASE`: Database name (cutler_code)
+- `DB_USERNAME`: Database username
+- `DB_PASSWORD`: Database password
+- `MAIL_MAILER`: Email service (smtp, etc.)
+- `MAIL_HOST`: SMTP host
+- `MAIL_PORT`: SMTP port
+- `MAIL_USERNAME`: SMTP username
+- `MAIL_PASSWORD`: SMTP password
+
+## Usage
+
+To run the application locally:
+
+1. Start the development server:
+   ```bash
+   php artisan serve
+   ```
+
+2. Open your browser and navigate to `http://localhost:8000`.
+
+For frontend development with hot reloading:
 ```bash
-git clone git@github.com:CutlerCode/cutler-code.git
-cd cutler-code
+npm run dev
 ```
-2. Install the composer dependencies.
+
+## Testing
+
+The project includes unit and feature tests using PHPUnit. To run the test suite:
+
 ```bash
-composer install
+./vendor/bin/phpunit
 ```
-3. Copy the .env.example file to be the .env file.
+
+Or using Composer:
 ```bash
-cp .env.example .env
+composer test
 ```
-4. Generate the Laravel application key.
-```bash
-php artisan key:generate
-```
-5. Create a MySQL database called cutler_code.
-```sql
-CREATE DATABASE IF NOT EXISTS cutler_code;
-```
-6. Create a database user with permissions for the cutler_code database and save those credentials to the DB_USERNAME and DB_PASSWORD environment variables in the .env file.
-```sql
-CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON cutler_code.* TO 'new_user'@'localhost';
-```
-7. Run database migrations.
-```bash
-php artisan migrate
-```
-8. (Optional) Install npm dependencies.
-```bash
-npm install
-```
-9. Run the Laravel application server.
-```bash
-php artisan server
-```
+
+## Deployment
+
+For production deployment:
+
+1. Set `APP_ENV=production` and `APP_DEBUG=false` in `.env`.
+2. Configure your web server (Apache/Nginx) to serve the `public/` directory.
+3. Ensure proper file permissions for storage and cache directories.
+4. Run database migrations on the production server.
+5. Build and optimize frontend assets:
+   ```bash
+   npm run build
+   ```
+6. Set up SSL certificates for secure HTTPS connections.
+7. Configure environment-specific settings (database, mail, etc.).
+
+## Contact
+
+For questions, support, or business inquiries:
+
+- Email: [calexcutler@gmail.com]
+- Website: [https://cacutler.github.io]
+- GitHub: [https://github.com/CutlerCode/cutler-code](https://github.com/CutlerCode/cutler-code)
 
 ## Screenshots
 
