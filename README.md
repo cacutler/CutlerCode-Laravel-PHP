@@ -18,7 +18,7 @@
 
 ## Description
 
-This is a Laravel-based business website for Cutler Code, a software development company. The platform allows clients to submit project requests, view company services, and manage notifications. It features user authentication, an admin dashboard for request management, and a responsive frontend built with modern web technologies.
+This is a Laravel-based business website for Cutler Code, a future software development company. The platform allows clients to submit project requests, view company services, and manage notifications. It features user authentication, an admin dashboard for request management, and a responsive frontend built with modern web technologies.
 
 ## Features
 
