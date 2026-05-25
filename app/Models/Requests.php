@@ -15,7 +15,9 @@ class Requests extends Model {
         'phone',
         'challenge',
         'comments',
-        'status'
+        'status',
+        'service',
+        'tool'
     ];
     protected $casts = ['employees' => 'integer'];
     const STATUS_PENDING = 'pending';

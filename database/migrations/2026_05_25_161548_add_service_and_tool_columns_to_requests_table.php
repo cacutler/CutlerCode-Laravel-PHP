@@ -8,7 +8,8 @@ return new class extends Migration {
      */
     public function up(): void {
         Schema::table('requests', function (Blueprint $table) {
-            
+            $table->enum('service', ['website', 'web app', 'mobile app', 'consulting', 'tool', 'IT', 'other'])->default('other');
+            $table->enum('tool', ['park', 'plan review', 'other'])->default('other');
         });
     }
     /**
@@ -16,7 +17,8 @@ return new class extends Migration {
      */
     public function down(): void {
         Schema::table('requests', function (Blueprint $table) {
-            
+            $table->dropColumn('service');
+            $table->dropColumn('tool');
         });
     }
 };

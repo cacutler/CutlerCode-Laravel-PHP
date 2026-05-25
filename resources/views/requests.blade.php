@@ -25,16 +25,18 @@
     <label for="service">Service</label>
     <select name="service">
         <option value="website">Website</option>
-        <option value="webapp">Web Application</option>
-        <option value="mobileapp">Mobile Application</option>
+        <option value="web app">Web Application</option>
+        <option value="mobile app">Mobile Application</option>
         <option value="consulting">Software Consulting</option>
         <option value="tool">Software Tool</option>
         <option value="IT">IT Work</option>
+        <option value="other" selected>Other</option>
     </select>
     <label for="tool">Software Tool (if applicable)</label>
     <select name="tool">
         <option value="park">Park Reservations</option>
-        <option value="planreview">AI Automated City Plan Review</option>
+        <option value="plan review">AI Automated City Plan Review</option>
+        <option value="other" selected>Other</option>
     </select>
     <label for="company-name">Name of your company or business</label>
     <input type="text" name="company-name" placeholder="Company/Business Name">
