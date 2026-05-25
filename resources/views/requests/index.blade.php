@@ -34,9 +34,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Company</th>
+                        <th>Organization</th>
                         <th>Email</th>
                         <th>Goal</th>
+                        <th>Service</th>
+                        <th>Tool</th>
                         <th>Status</th>
                         <th>Date</th>
                         <th>Actions</th>
@@ -50,6 +52,8 @@
                             <td>{{$request->company_name ?? 'N/A'}}</td>
                             <td>{{$request->email}}</td>
                             <td>{{Str::limit($request->goal, 40)}}</td>
+                            <td>{{$request->service}}</td>
+                            <td>{{$request->tool}}</td>
                             <td>
                                 <form action="{{route('requests.updateStatus', $request)}}" method="POST" class="status-form">
                                     @csrf

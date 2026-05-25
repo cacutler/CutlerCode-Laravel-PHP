@@ -64,11 +64,11 @@
             </div>
         </div>
         <div class="info-section">
-            <h2>Company Information</h2>
+            <h2>Organization Information</h2>
             <div class="info-grid">
                 @if($request->company_name)
                     <div class="info-item">
-                        <label>Company Name</label>
+                        <label>Organization Name</label>
                         <span>{{$request->company_name}}</span>
                     </div>
                 @endif
@@ -92,6 +92,8 @@
                 <div class="detail-item">
                     <label>Goal</label>
                     <div class="detail-content">{{$request->goal}}</div>
+                    <label>Service/Tool</label>
+                    <div class="detail-content">{{$request->service}}, {{$request->tool}}</div>
                 </div>
                 @if($request->challenge)
                     <div class="detail-item">

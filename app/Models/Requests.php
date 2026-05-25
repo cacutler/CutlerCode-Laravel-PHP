@@ -1,5 +1,7 @@
 <?php
 namespace App\Models;
+use App\ServiceType;
+use App\ToolType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 class Requests extends Model {
@@ -19,7 +21,7 @@ class Requests extends Model {
         'service',
         'tool'
     ];
-    protected $casts = ['employees' => 'integer'];
+    protected $casts = ['employees' => 'integer', 'service' => ServiceType::class, 'tool' => ToolType::class];
     const STATUS_PENDING = 'pending';
     const STATUS_IN_PROGRESS = 'in_progress';
     const STATUS_COMPLETED = 'completed';

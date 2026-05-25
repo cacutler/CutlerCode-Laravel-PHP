@@ -1,7 +1,7 @@
 @extends('master')
 @section('title', 'Requests')
 @section('content')
-<h1>Project Requests</h1>
+<h1>Project/Service Requests</h1>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -32,14 +32,14 @@
         <option value="IT">IT Work</option>
         <option value="other" selected>Other</option>
     </select>
-    <label for="tool">Software Tool (if applicable)</label>
+    <label for="tool">Software Tool (if applicable, otherwise select other)</label>
     <select name="tool">
         <option value="park">Park Reservations</option>
         <option value="plan review">AI Automated City Plan Review</option>
         <option value="other" selected>Other</option>
     </select>
-    <label for="company-name">Name of your company or business</label>
-    <input type="text" name="company-name" placeholder="Company/Business Name">
+    <label for="company-name">Name of your company, business, or organization</label>
+    <input type="text" name="company-name" placeholder="Company/Business/Organization Name">
     <label for="website">Current Website</label>
     <input type="url" name="website" placeholder="Website">
     <label for="employees">Number of Employees</label>

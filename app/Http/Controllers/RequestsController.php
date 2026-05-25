@@ -1,11 +1,14 @@
 <?php
 namespace App\Http\Controllers;
+use App\ServiceType;
+use App\ToolType;
 use App\Models\Requests;
 use App\Models\User;
 use App\Notifications\NewRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Validation\Rule;
 use Log;
 use Exception;
 class RequestsController extends Controller {
@@ -29,7 +32,9 @@ class RequestsController extends Controller {
             'location' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:20',
             'challenge' => 'nullable|string',
-            'comments' => 'nullable|string'
+            'comments' => 'nullable|string',
+            'service' => ['nullable', 'string', Rule::enum(ServiceType::class)],
+            'tool' => ['nullable', 'string', Rule::enum(ToolType::class)]
         ]);// Validate the incoming request
         $newRequest = Requests::create($validatedData);// Create the new request record
         $this->sendNewRequestNotification($newRequest);// Send notification to admin users
@@ -39,7 +44,7 @@ class RequestsController extends Controller {
      * Display all project requests (admin view)
      */
     public function index(): View {
-        $requests = Requests::latest()->paginate(15);
+        $requests = Requests::latest('created_at')->paginate(15);
         $statusOptions = Requests::getStatusOptions();
         return view('requests.index', compact('requests', 'statusOptions'));
     }
@@ -63,7 +68,7 @@ class RequestsController extends Controller {
      * Delete a project request
      */
     public function destroy(Requests $projectRequest): RedirectResponse {
-        $projectRequest->delete();
+        $projectRequest->deleteOrFail();
         return redirect()->route('requests.index')->with('success', 'Request deleted successfully!');
     }
     /**
@@ -97,7 +102,7 @@ class RequestsController extends Controller {
      */
     private function sendNewRequestNotification(Requests $request): void {
         try {
-            $adminUsers = User::where('is_admin', true)->get();
+            $adminUsers = User::where('is_admin', '=', true, 'and')->get();
             foreach ($adminUsers as $user) {// Send notification to each admin user
                 $user->notify(new NewRequest($request));
             }

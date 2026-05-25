@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
 <div class="dashboard">
-    <div class="dashboard-header"><h1>Project Dashboard</h1></div>
+    <div class="dashboard-header"><h1>Project/Services Dashboard</h1></div>
     @if(session('success'))
         <div class="alert alert-success">{{session('success')}}</div>
     @endif
@@ -35,8 +35,10 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Company</th>
+                            <th>Organization</th>
                             <th>Goal</th>
+                            <th>Service</th>
+                            <th>Tool</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th>Actions</th>
@@ -48,6 +50,8 @@
                                 <td>{{$request->name}}</td>
                                 <td>{{$request->company_name ?? 'N/A'}}</td>
                                 <td>{{Str::limit($request->goal, 50)}}</td>
+                                <td>{{$request->service}}</td>
+                                <td>{{$request->tool}}</td>
                                 <td><span class="badge {{$request->getStatusBadgeClass()}}">{{ucfirst(str_replace('_', ' ', $request->status))}}</span></td>
                                 <td>{{$request->created_at->format('M j, Y')}}</td>
                                 <td><a href="{{route('requests.show', $request)}}" class="btn btn-sm btn-outline">View</a></td>
@@ -70,7 +74,7 @@
 </div>
 <style>
     .dashboard {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
         padding: 20px;
     }
