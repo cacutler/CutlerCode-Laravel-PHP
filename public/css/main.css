@@ -80,10 +80,10 @@ form {
     padding: 1rem 1.5rem;
     border-radius: 5px;
 }
-form input, form label, form textarea {
+form input, form label, form textarea, form select {
     margin-bottom: 1rem;
 }
-form input, form textarea {
+form input, form textarea, form select {
     border-radius: 10px;
     padding: 0.5rem 0.25rem;
     border: 2px solid black;
