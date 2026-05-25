@@ -2,7 +2,7 @@
 @section('title', 'Pricing')
 @section('content')
 <h1>Pricing</h1>
-<p>Hourly rate starting at $25/hour.  This is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
+<p>Hourly rate starts at $25/hour for software work and $15/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
 <div class="grid">
     <div class="pricing-card">
         <h3>Websites</h3>
@@ -50,8 +50,26 @@
             <li>Agile process and DevOps consulting</li>
         </ul>
     </div>
+    <div class="pricing-card">
+        <h3>Software Tools and Offerings</h3>
+        <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
+        <ul>
+            <li>Park Reservations - starts at $100/month for maintenance, data storage, and hosting</li>
+            <li>AI Automated City Plan Review - starts at $200/month for AI usage, maintenance, data storage, and hosting</li>
+        </ul>
+    </div>
+    <div class="pricing-card">
+        <h3>IT Services</h3>
+        <p>Professional help with basic computer work like printer connections, storage work, etc. and learning basic computer skills like keyboard shortcuts.</p>
+        <ul>
+            <li>Printer connections for computers (covers driver downloads)</li>
+            <li>Basic computer skills like researching/googling, basic setting configuring, etc.</li>
+            <li>OS (operating system) updates</li>
+            <li>Storage cleanup/backup</li>
+        </ul>
+    </div>
 </div>
-<p id="footnote">All of these rates and plans are subject to specific needs and negotiations but will generally be close to, if not at least at, these starting prices and rates.</p>
+<p id="footnote">All of these rates and plans are subject to specific needs and negotiations but will generally be close to, if not no less than, these starting prices and rates.</p>
 <style>
     .grid {
         display: grid;

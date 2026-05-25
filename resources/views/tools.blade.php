@@ -1,0 +1,47 @@
+@extends('master')
+@section('title', 'Software Tools/Offerings')
+@section('content')
+<h1>Software Tools and Offerings</h1>
+<div class="grid">
+    <div class="software-card">
+        <h3>Park Reservations</h3>
+    </div>
+    <div class="software-card">
+        <h3>AI Automated City Plan Review</h3>
+    </div>
+</div>
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    .software-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 3px solid black;
+        border-radius: 6px;
+        width: 75%;
+        height: auto;
+        margin: 1rem auto;
+        text-align: center;
+        padding: 1rem 2rem;
+        background-color: #ffa900;
+    }
+    @media screen and (max-width: 992px) {
+        .software-card {
+            width: 70%;
+        }
+        .grid {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .software-card {
+            width: 100%;
+        }
+    }
+</style>
+@endsection

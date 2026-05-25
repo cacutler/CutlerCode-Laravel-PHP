@@ -19,6 +19,9 @@ Route::get('/projects', function (): View {
 Route::get('/pricing', function (): View {
     return view('pricing');
 })->name('pricing');
+Route::get('/tools', function (): View {
+    return view('tools');
+})->name('tools');
 Route::get('/requests', [RequestsController::class, 'create'])->name('requests.create');// Public request form
 Route::post('/requests', [RequestsController::class, 'store'])->name('requests.store');
 Route::middleware('guest')->group(function (): void {// Authentication routes (only for guests)

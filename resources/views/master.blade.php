@@ -29,6 +29,7 @@
                         <li><a href="{{route('about')}}" class="{{request()->routeIs('about') ? 'active' : ''}}">About Us</a></li>
                         <li><a href="{{route('skills')}}" class="{{request()->routeIs('skills') ? 'active' : ''}}">Skills and Tech Stacks</a></li>
                         <li><a href="{{route('projects')}}" class="{{request()->routeIs('projects') ? 'active' : ''}}">Projects</a></li>
+                        <li><a href="{{route('tools')}}" class="{{request()->routeIs('tools') ? 'active' : ''}}'">Tools and Offerings</a></li>
                         <li><a href="{{route('pricing')}}" class="{{request()->routeIs('pricing') ? 'active' : ''}}">Pricing</a></li>
                         <li><a href="{{route('requests.create')}}" class="{{request()->routeIs('requests.create') ? 'active' : ''}}">Requests</a></li>
                         @guest

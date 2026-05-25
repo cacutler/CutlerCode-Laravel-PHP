@@ -1,7 +1,7 @@
 @extends('master')
 @section('title', 'Projects')
 @section('content')
-<h1>Current Projects</h1>
+<h1>Highlighted Projects</h1>
 <div class="grid">
     <div class="project-card">
         <h2>Cutler Code Website</h2>
@@ -11,7 +11,7 @@
         <p>Developer: Alex Cutler</p>
     </div>
     <div class="project-card">
-        <h2>Park Reservations Tool</h2>
+        <h2>Park Reservations</h2>
         <a href="https://github.com/cacutler/Park-Reservations-CSharp-ASPNet"><img src="{{asset('images/ParkReservationsProject.png')}}" alt="Park Reservations Github Repository Link" class="project-image"></a>
         <b>Web Development</b>
         <p>Stack: C#, ASP.Net, and Razor</p>

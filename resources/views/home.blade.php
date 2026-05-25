@@ -2,20 +2,32 @@
 @section('title', 'Cutler Code')
 @section('content')
 <h1>Cutler Code</h1>
-<p>Welcome to Cutler Code where we help kickstart your software and online presence</p>
+<p>Welcome to Cutler Code where we help kickstart your software and online presence.  We also offer software solutions like an AI automated development plan review tool for city governments.</p>
 <h2>What We Offer</h2>
 <div class="grid">
     <div class="offering-card">
-        <h4>Website Building/Maintance</h4>
+        <h4>Website Building and Maintance</h4>
         <p>Includes deploying, hosting, and maintaining the site.</p>
     </div>
     <div class="offering-card">
-        <h4>Web/Mobile Applications</h4>
-        <p>Includes deploying/publishing, hosting, and maintaining the applications</p>
+        <h4>Web Applications</h4>
+        <p>Includes deploying/publishing, hosting, and maintaining the web applications</p>
+    </div>
+    <div class="offering-card">
+        <h4>Mobile Applications</h4>
+        <p>Similar to web applications, includes publishing and maintaining the mobile applications</p>
     </div>
     <div class="offering-card">
         <h4>Software Consulting</h4>
         <p>Includes guidance on planning, designing, and implementating software</p>
+    </div>
+    <div class="offering-card">
+        <h4>Software Tools and Offerings</h4>
+        <p>Tools built by the company such as a city plan AI automated review tool</p>
+    </div>
+    <div class="offering-card">
+        <h4>IT services</h4>
+        <p>Basic IT services like computer guidance and skills, connecting printers, storage cleanup and backup, etc.</p>
     </div>
 </div>
 <style>
