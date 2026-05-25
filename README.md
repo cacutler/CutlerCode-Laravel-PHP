@@ -42,7 +42,7 @@ This is a Laravel-based business website for Cutler Code, a future software deve
 
 Before setting up the project, ensure you have the following installed:
 
-- PHP >= 8.3
+- PHP >= 8.4
 - Composer >= 2.2
 - MySQL or compatible database server
 - Node.js and NPM (optional, for frontend asset compilation)
