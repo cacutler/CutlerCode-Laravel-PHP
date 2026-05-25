@@ -29,6 +29,9 @@
         padding: 1rem 2rem;
         background-color: #ffa900;
     }
+    h3 {
+        border-bottom: 2px solid black;
+    }
     @media screen and (max-width: 992px) {
         .software-card {
             width: 70%;

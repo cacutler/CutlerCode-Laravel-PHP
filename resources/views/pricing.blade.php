@@ -73,7 +73,7 @@
 <style>
     .grid {
         display: grid;
-        grid-template-columns: repeat(2, 2fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         gap: 0.75rem;
     }
@@ -92,8 +92,6 @@
     }
     h3 {
         border-bottom: 2px solid black;
-        margin: 0 auto;
-        width: 50%;
         padding-bottom: 0.25rem;
     }
     ul {
