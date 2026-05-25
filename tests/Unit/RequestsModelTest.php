@@ -7,7 +7,7 @@ class RequestsModelTest extends TestCase {
     use RefreshDatabase;
     public function test_it_has_correct_fillable_attributes(): void {
         $request = new Requests();
-        $expected = ['name', 'goal', 'email', 'company_name', 'website', 'employees', 'location', 'phone', 'challenge', 'comments', 'status'];
+        $expected = ['name', 'goal', 'email', 'company_name', 'website', 'employees', 'location', 'phone', 'challenge', 'comments', 'status', 'service', 'tool'];
         $this->assertEquals($expected, $request->getFillable());
     }
     public function test_it_has_default_pending_status(): void {
