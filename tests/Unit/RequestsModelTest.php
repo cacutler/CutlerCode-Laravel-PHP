@@ -1,6 +1,8 @@
 <?php
 namespace Tests\Unit;
 use App\Models\Requests;
+use App\ToolType;
+use App\ServiceType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 class RequestsModelTest extends TestCase {
@@ -13,6 +15,14 @@ class RequestsModelTest extends TestCase {
     public function test_it_has_default_pending_status(): void {
         $request = new Requests();
         $this->assertEquals('pending', $request->status);
+    }
+    public function test_it_has_default_service(): void {
+        $request = new Requests();
+        $this->assertEquals(ServiceType::OTHER, $request->service);
+    }
+    public function test_it_has_default_tool(): void {
+        $request = new Requests();
+        $this->assertEquals(ToolType::OTHER, $request->tool);
     }
     public function test_it_returns_correct_status_options(): void {
         $expected = [

@@ -26,7 +26,7 @@ class Requests extends Model {
     const STATUS_IN_PROGRESS = 'in_progress';
     const STATUS_COMPLETED = 'completed';
     const STATUS_CANCELLED = 'cancelled';
-    protected $attributes = ['status' => self::STATUS_PENDING];
+    protected $attributes = ['status' => self::STATUS_PENDING, 'service' => ServiceType::OTHER, 'tool' => ToolType::OTHER];
     /**
      * Get available status options
      */
