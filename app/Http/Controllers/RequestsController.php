@@ -11,6 +11,7 @@ use Illuminate\View\View;
 use Illuminate\Validation\Rule;
 use Log;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 class RequestsController extends Controller {
     /**
      * Display the requests form
@@ -75,7 +76,7 @@ class RequestsController extends Controller {
      * Display notifications for authenticated user
      */
     public function notifications(): View {
-        $user = auth()->user();
+        $user = Auth::user();
         $notifications = $user->notifications()->paginate(10);
         return view('notifications.index', compact('notifications'));
     }
@@ -83,7 +84,7 @@ class RequestsController extends Controller {
      * Mark notification as read
      */
     public function markAsRead($notificationId): RedirectResponse {
-        $user = auth()->user();
+        $user = Auth::user();
         $notification = $user->notifications()->find($notificationId);
         if ($notification) {
             $notification->markAsRead();
@@ -94,7 +95,7 @@ class RequestsController extends Controller {
      * Mark all notifications as read
      */
     public function markAllAsRead(): RedirectResponse {
-        auth()->user()->unreadNotifications->markAsRead();
+        Auth::user()->unreadNotifications->markAsRead();
         return redirect()->back()->with('success', 'All notifications marked as read.');
     }
     /**
@@ -114,7 +115,7 @@ class RequestsController extends Controller {
      * Delete a specific notification
      */
     public function deleteNotification($notificationId): RedirectResponse {
-        $user = auth()->user();
+        $user = Auth::user();
         $notification = $user->notifications()->find($notificationId);
         if ($notification) {
             $notification->delete();
@@ -126,7 +127,7 @@ class RequestsController extends Controller {
      * Delete all notifications for the authenticated user
      */
     public function deleteAllNotifications(): RedirectResponse {
-        auth()->user()->notifications()->delete();
+        Auth::user()->notifications()->delete();
         return redirect()->back()->with('success', 'All notifications deleted successfully.');
     }
 }
