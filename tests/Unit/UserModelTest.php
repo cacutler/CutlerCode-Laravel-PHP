@@ -7,13 +7,11 @@ class UserModelTest extends TestCase {
     use RefreshDatabase;
     public function test_it_has_correct_fillable_attributes(): void {
         $user = new User();
-        $expected = ['name', 'email', 'password', 'is_admin'];
-        $this->assertEquals($expected, $user->getFillable());
+        $this->assertEquals(['name', 'email', 'password', 'is_admin'], $user->getFillable());
     }
     public function test_it_hides_sensitive_attributes(): void {
         $user = new User();
-        $expected = ['password', 'remember_token'];
-        $this->assertEquals($expected, $user->getHidden());
+        $this->assertEquals(['password', 'remember_token'], $user->getHidden());
     }
     public function test_password_is_automatically_hashed(): void {
         $user = User::factory()->create(['password' => 'plaintext']);

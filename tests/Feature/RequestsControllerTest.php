@@ -39,6 +39,7 @@ class RequestsControllerTest extends TestCase {
         $response->assertSessionHasErrors(['name', 'goal', 'email']);
     }
     public function test_authenticated_user_can_view_requests_index(): void {
+        /** @var \App\Models\User $user */
         $user = User::factory()->create(['is_admin' => true]);
         Requests::factory()->count(3)->create();
         $response = $this->actingAs($user)->get('/admin/requests');
@@ -47,6 +48,7 @@ class RequestsControllerTest extends TestCase {
         $response->assertViewHas(['requests', 'statusOptions']);
     }
     public function test_authenticated_user_can_view_specific_request(): void {
+        /** @var \App\Models\User $user */
         $user = User::factory()->create(['is_admin' => true]);
         $request = Requests::factory()->create();
         $response = $this->actingAs($user)->get("/admin/requests/{$request->id}");
@@ -55,6 +57,7 @@ class RequestsControllerTest extends TestCase {
         $response->assertViewHas(['projectRequest', 'statusOptions']);
     }
     public function test_authenticated_user_can_update_request_status(): void {
+        /** @var \App\Models\User $user */
         $user = User::factory()->create(['is_admin' => true]);
         $request = Requests::factory()->create(['status' => 'pending']);
         $response = $this->actingAs($user)->patch("/admin/requests/{$request->id}/status", ['status' => 'in_progress']);
@@ -63,6 +66,7 @@ class RequestsControllerTest extends TestCase {
         $this->assertDatabaseHas('requests', ['id' => $request->id, 'status' => 'in_progress']);
     }
     public function test_authenticated_user_can_delete_request(): void {
+        /** @var \App\Models\User $user */
         $user = User::factory()->create(['is_admin' => true]);
         $request = Requests::factory()->create();
         $response = $this->actingAs($user)->delete("/admin/requests/{$request->id}");

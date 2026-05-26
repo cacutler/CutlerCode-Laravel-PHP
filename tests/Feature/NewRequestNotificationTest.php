@@ -15,12 +15,7 @@ class NewRequestNotificationTest extends TestCase {
         $this->assertEquals(['mail', 'database'], $channels);
     }
     public function test_notification_creates_correct_mail_message(): void {
-        $request = Requests::factory()->create([
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-            'company_name' => 'Test Company',
-            'goal' => 'Build a website'
-        ]);
+        $request = Requests::factory()->create(['name' => 'John Doe', 'email' => 'john@example.com', 'company_name' => 'Test Company', 'goal' => 'Build a website']);
         $user = User::factory()->create(['name' => 'Admin User']);
         $notification = new NewRequest($request);
         $mailMessage = $notification->toMail($user);

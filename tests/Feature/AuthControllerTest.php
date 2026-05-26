@@ -13,27 +13,15 @@ class AuthControllerTest extends TestCase {
         $response->assertViewIs('auth.login');
     }
     public function test_user_can_login_with_valid_credentials(): void {
-        $user = User::factory()->create([
-            'email' => 'test@example.com',
-            'password' => Hash::make('password123')
-        ]);
-        $response = $this->post('/login', [
-            'email' => 'test@example.com',
-            'password' => 'password123'
-        ]);
+        $user = User::factory()->create(['email' => 'test@example.com', 'password' => Hash::make('password123')]);
+        $response = $this->post('/login', ['email' => 'test@example.com', 'password' => 'password123']);
         $response->assertRedirect('/dashboard');
         $response->assertSessionHas('success', 'Welcome back!');
         $this->assertAuthenticatedAs($user);
     }
     public function test_user_cannot_login_with_invalid_credentials(): void {
-        User::factory()->create([
-            'email' => 'test@example.com',
-            'password' => Hash::make('password123')
-        ]);
-        $response = $this->post('/login', [
-            'email' => 'test@example.com',
-            'password' => 'wrongpassword'
-        ]);
+        User::factory()->create(['email' => 'test@example.com', 'password' => Hash::make('password123')]);
+        $response = $this->post('/login', ['email' => 'test@example.com', 'password' => 'wrongpassword']);
         $response->assertRedirect();
         $response->assertSessionHasErrors('email');
         $this->assertGuest();
@@ -44,30 +32,16 @@ class AuthControllerTest extends TestCase {
         $response->assertViewIs('auth.register');
     }
     public function test_user_can_register_with_valid_data(): void {
-        $userData = [
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-            'password' => 'password123',
-            'password_confirmation' => 'password123'
-        ];
-        $response = $this->post('/register', $userData);
+        $response = $this->post('/register', ['name' => 'John Doe', 'email' => 'john@example.com', 'password' => 'password123', 'password_confirmation' => 'password123']);
         $response->assertRedirect('/dashboard');
         $response->assertSessionHas('success', 'Registration successful! Welcome to your dashboard.');
-        $this->assertDatabaseHas('users', [
-            'name' => 'John Doe',
-            'email' => 'john@example.com'
-        ]);
-        $user = User::where('email', 'john@example.com')->first();
+        $this->assertDatabaseHas('users', ['name' => 'John Doe', 'email' => 'john@example.com']);
+        $user = User::where('email', '=', 'john@example.com', 'and')->first();
         $this->assertAuthenticatedAs($user);
     }
     public function test_user_cannot_register_with_duplicate_email(): void {
         User::factory()->create(['email' => 'test@example.com']);
-        $response = $this->post('/register', [
-            'name' => 'John Doe',
-            'email' => 'test@example.com',
-            'password' => 'password123',
-            'password_confirmation' => 'password123'
-        ]);
+        $response = $this->post('/register', ['name' => 'John Doe', 'email' => 'test@example.com', 'password' => 'password123', 'password_confirmation' => 'password123']);
         $response->assertSessionHasErrors('email');
         $this->assertGuest();
     }

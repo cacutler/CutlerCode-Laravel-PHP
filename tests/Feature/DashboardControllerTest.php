@@ -15,14 +15,7 @@ class DashboardControllerTest extends TestCase {
         $response = $this->actingAs($user)->get('/dashboard');
         $response->assertStatus(200);
         $response->assertViewIs('users.dashboard');
-        $response->assertViewHas([
-            'recentRequests',
-            'totalRequests',
-            'pendingRequests',
-            'completedRequests',
-            'inProgressRequests',
-            'requestsByMonth'
-        ]);
+        $response->assertViewHas(['recentRequests', 'totalRequests', 'pendingRequests', 'completedRequests', 'inProgressRequests', 'requestsByMonth']);
     }
     public function test_dashboard_displays_correct_statistics(): void {
         /** @var \App\Models\User $user */

@@ -9,8 +9,7 @@ class RequestsModelTest extends TestCase {
     use RefreshDatabase;
     public function test_it_has_correct_fillable_attributes(): void {
         $request = new Requests();
-        $expected = ['name', 'goal', 'email', 'company_name', 'website', 'employees', 'location', 'phone', 'challenge', 'comments', 'status', 'service', 'tool'];
-        $this->assertEquals($expected, $request->getFillable());
+        $this->assertEquals(['name', 'goal', 'email', 'company_name', 'website', 'employees', 'location', 'phone', 'challenge', 'comments', 'status', 'service', 'tool'], $request->getFillable());
     }
     public function test_it_has_default_pending_status(): void {
         $request = new Requests();
@@ -25,13 +24,7 @@ class RequestsModelTest extends TestCase {
         $this->assertEquals(ToolType::OTHER, $request->tool);
     }
     public function test_it_returns_correct_status_options(): void {
-        $expected = [
-            'pending' => 'Pending',
-            'in_progress' => 'In Progress',
-            'completed' => 'Completed',
-            'cancelled' => 'Cancelled'
-        ];
-        $this->assertEquals($expected, Requests::getStatusOptions());
+        $this->assertEquals(['pending' => 'Pending', 'in_progress' => 'In Progress', 'completed' => 'Completed', 'cancelled' => 'Cancelled'], Requests::getStatusOptions());
     }
     public function test_it_returns_correct_status_badge_classes(): void {
         $request = new Requests();
