@@ -8,11 +8,11 @@ class DashboardController extends Controller {
      * Display the dashboard with requests overview
      */
     public function index(): View {
-        $recentRequests = Requests::latest()->take(5)->get();
-        $totalRequests = Requests::count();
-        $pendingRequests = Requests::where('status', 'pending')->count();
-        $completedRequests = Requests::where('status', 'completed')->count();
-        $inProgressRequests = Requests::where('status', 'in_progress')->count();
+        $recentRequests = Requests::latest('created_at')->take(5)->get();
+        $totalRequests = Requests::count('id');
+        $pendingRequests = Requests::where('status', '=', 'pending', 'and')->count();
+        $completedRequests = Requests::where('status', '=', 'completed', 'and')->count();
+        $inProgressRequests = Requests::where('status', '=', 'in_progress', 'and')->count();
         $driver = DB::getDriverName();
         if ($driver === 'mysql') {
             $monthExpr = "DATE_FORMAT(created_at, '%Y-%m')";
@@ -21,7 +21,7 @@ class DashboardController extends Controller {
         } else {
             $monthExpr = "strftime('%Y-%m', created_at)";
         }
-        $requestsByMonth = Requests::selectRaw("COUNT(*) as count, {$monthExpr} as month")->groupBy('month')->orderBy('month')->pluck('count', 'month');
+        $requestsByMonth = Requests::selectRaw("COUNT(*) as count, {$monthExpr} as month", [])->groupBy('month')->orderBy('month')->pluck('count', 'month');
         return view('users.dashboard', [
             'recentRequests' => $recentRequests,
             'totalRequests' => $totalRequests,
