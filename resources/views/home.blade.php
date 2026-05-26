@@ -2,7 +2,7 @@
 @section('title', 'Cutler Code')
 @section('content')
 <h1>Cutler Code</h1>
-<p>Welcome to Cutler Code where we help kickstart your software and online presence.  We also offer software solutions like an AI automated development plan review tool for city governments.</p>
+<p>Welcome to Cutler Code, where we help kickstart your software and online presence.  We also offer software solutions like an AI automated development plan review tool for city governments.</p>
 <h2>What We Offer</h2>
 <div class="grid">
     <div class="offering-card">
@@ -45,6 +45,7 @@
         border: 3px solid black;
         border-radius: 6px;
         background-color: #ffa900;
+        padding: 0.5rem;
     }
     h2 {
         margin-top: 3%;

@@ -30,7 +30,7 @@
         align-items: center;
         border: 3px solid black;
         border-radius: 6px;
-        width: 75%;
+        width: 80%;
         height: auto;
         margin: 1rem auto;
         text-align: center;

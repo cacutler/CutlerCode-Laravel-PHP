@@ -43,7 +43,9 @@
         justify-content: center;
         align-items: center;
         min-height: 70vh;
-        padding: 20px;
+    }
+    .auth-container h1 {
+        padding-bottom: 1rem;
     }
     .auth-form {
         background: white;

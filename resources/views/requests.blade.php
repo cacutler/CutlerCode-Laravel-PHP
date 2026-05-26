@@ -17,13 +17,13 @@
 <form action="{{route('requests.store')}}" method="POST" id="requests-form">
     @csrf
     <label for="name">Name *</label>
-    <input type="text" name="name" id="name" placeholder="Your name">
+    <input type="text" name="name" id="name" placeholder="Your name" required>
     <label for="goal">What are you hoping to accomplish? *</label>
-    <input type="text" name="goal" placeholder="Goal">
+    <input type="text" name="goal" placeholder="Goal" required>
     <label for="email">Email Address *</label>
-    <input type="email" name="email" id="email" placeholder="Email Address">
-    <label for="service">Service</label>
-    <select name="service">
+    <input type="email" name="email" id="email" placeholder="Email Address" required>
+    <label for="service">Service *</label>
+    <select name="service" id="service" required>
         <option value="website">Website</option>
         <option value="web app">Web Application</option>
         <option value="mobile app">Mobile Application</option>
@@ -32,24 +32,24 @@
         <option value="IT">IT Work</option>
         <option value="other" selected>Other</option>
     </select>
-    <label for="tool">Software Tool (if applicable, otherwise select other)</label>
-    <select name="tool">
+    <label for="tool">Software Tool (if applicable, otherwise select other) *</label>
+    <select name="tool" id="name" required>
         <option value="park">Park Reservations</option>
         <option value="plan review">AI Automated City Plan Review</option>
         <option value="other" selected>Other</option>
     </select>
     <label for="company-name">Name of your company, business, or organization</label>
-    <input type="text" name="company-name" placeholder="Company/Business/Organization Name">
+    <input type="text" name="company-name" id="company-name" placeholder="Company/Business/Organization Name">
     <label for="website">Current Website</label>
-    <input type="url" name="website" placeholder="Website">
+    <input type="url" name="website" id="website" placeholder="Website">
     <label for="employees">Number of Employees</label>
     <input type="number" min="1" name="employees" id="employees" placeholder="Number of Employees">
     <label for="location">Location</label>
-    <input type="text" name="location" placeholder="Location">
+    <input type="text" id="location" name="location" placeholder="Location">
     <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" placeholder="Phone Number">
+    <input type="tel" name="phone" id="phone" placeholder="Phone Number">
     <label for="challenge">Biggest Challenge</label>
-    <input type="text" name="challenge" placeholder="Biggest Challenge">
+    <input type="text" id="challenge" name="challenge" placeholder="Biggest Challenge">
     <label for="comments">Anything else</label>
     <textarea name="comments" id="comments" placeholder="Anything Else?"></textarea>
     <input type="submit" name="submit" class="submit">
