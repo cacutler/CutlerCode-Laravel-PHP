@@ -29,7 +29,7 @@ This is a Laravel-based business website for Cutler Code, a future software deve
 - Responsive design optimized for desktop and mobile
 - Secure user sessions and role-based access control
 
-## Technologies
+## Technologies/Design
 
 - **Backend**: Laravel 13 (PHP Framework)
 - **Frontend**: Blade templates, Vite, JavaScript
@@ -37,6 +37,7 @@ This is a Laravel-based business website for Cutler Code, a future software deve
 - **Styling**: CSS
 - **Testing**: PHPUnit
 - **Package Management**: Composer (PHP), NPM (JavaScript)
+- **Color Combination**: Electric Fusion - see Figma color combinations <a href=""https://www.figma.com/resource-library/color-combinations/>here</a>
 
 ## Prerequisites
 
