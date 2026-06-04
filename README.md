@@ -37,7 +37,7 @@ This is a Laravel-based business website for Cutler Code, a future software deve
 - **Styling**: CSS
 - **Testing**: PHPUnit
 - **Package Management**: Composer (PHP), NPM (JavaScript)
-- **Color Combination**: Electric Fusion - see Figma color combinations ![here](https://www.figma.com/resource-library/color-combinations/)
+- **Color Combination**: Electric Fusion - see Figma color combinations [here](https://www.figma.com/resource-library/color-combinations/)
 
 ## Prerequisites
 
