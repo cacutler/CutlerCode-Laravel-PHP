@@ -27,6 +27,7 @@
                     <li>Kotlin</li>
                     <li>SQL</li>
                     <li>PHP</li>
+                    <li>Java</li>
                 </ul>
             </div>
             <div class="right-side">
@@ -51,6 +52,7 @@
                     <li>Unity (C#)</li>
                     <li>Wordpress (PHP)</li>
                     <li>ASP.Net (C#)</li>
+                    <li>Spring/Spring Boot (Java)</li>
                 </ul>
             </div>
         </div>
