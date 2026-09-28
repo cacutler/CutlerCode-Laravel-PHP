@@ -2,37 +2,37 @@
 @section('title', 'Pricing')
 @section('content')
 <h1>Pricing</h1>
-<p>Hourly rate starts at $25/hour for software work and $15/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
+<p>Hourly rate starts at $30/hour for software work and $25/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
 <div class="grid">
     <div class="pricing-card">
         <h3>Websites</h3>
         <p>High-quality development of websites with the most modern and high-quality design made at a professional level.</p>
         <ul>
-            <li>Single person and small groups starting at $200/project</li>
-            <li>Small businesses starting at $300/project</li>
+            <li>Single person and small groups starting at $500/project</li>
+            <li>Small businesses starting at $750/project</li>
             <li>Designing website theme and brand</li>
             <li>Content Creation</li>
-            <li>Website/Content Maintance and Hosting - seperate small fee of $20 charged per month for making sure the software and content is up to date and the site remains online</li>
+            <li>Website/Content Maintance and Hosting - seperate small fee of $35 charged per month for making sure the software and content is up to date and the site remains online</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Web Applications</h3>
         <p>High-quality development of web applications at the professional level.</p>
         <ul>
-            <li>Single person and small groups starting at $250/project</li>
-            <li>Small businesses starting at $400/project</li>
+            <li>Single person and small groups starting at $650/project</li>
+            <li>Small businesses starting at $1000/project</li>
             <li>Database</li>
             <li>Back-end Server</li>
             <li>Front-end User Interface</li>
-            <li>Web Application Maintance and Hosting - seperate small fee of $30 charged per month for making sure the software is up to date and working and the site remains online</li>
+            <li>Web Application Maintance and Hosting - seperate small fee of $40 charged per month for making sure the software is up to date and working and the site remains online</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Mobile Applications</h3>
         <p>Professional development of mobile applications for iOS and Android.</p>
         <ul>
-            <li>Single person and small groups starting at $400/project</li>
-            <li>Small businesses starting at $600/project</li>
+            <li>Single person and small groups starting at $800/project</li>
+            <li>Small businesses starting at $1250/project</li>
             <li>Cross platform apps for both iOS and Android using Flutter or React Native</li>
             <li>Fully native platform apps using Swift/Swift for iOS or Kotlin/Jetpack Compose for Android</li>
         </ul>
@@ -41,7 +41,7 @@
         <h3>Software Consulting</h3>
         <p>Professional guidance of software planning, designing, and implementation that drives real results.</p>
         <ul>
-            <li>Hourly rate starting at $20/hour.</li>
+            <li>Hourly rate starting at $25/hour.</li>
             <li>Software architecture and system design</li>
             <li>Cloud migration and infrastructure planning</li>
             <li>Custom app development strategy</li>
@@ -54,7 +54,7 @@
         <h3>Software Tools and Offerings</h3>
         <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
         <ul>
-            <li>Park Reservations - starts at $100/month for maintenance, data storage, and hosting</li>
+            <li>Park Reservations - starts at $200/month for maintenance, data storage, and hosting</li>
             <li>AI Automated City Plan Review - starts at $200/month for AI usage, maintenance, data storage, and hosting</li>
         </ul>
     </div>
@@ -69,7 +69,7 @@
         </ul>
     </div>
 </div>
-<p id="footnote">All of these rates and plans are subject to specific needs and negotiations but will generally be close to, if not no less than, these starting prices and rates.</p>
+<p id="footnote">All of these rates and plans are subject to specific needs and negotiations, but will generally be close to the starting prices and rates specified above.</p>
 <style>
     .grid {
         display: grid;
