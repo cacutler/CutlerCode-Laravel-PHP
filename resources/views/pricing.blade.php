@@ -55,7 +55,7 @@
         <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
         <ul>
             <li>Park Reservations - starts at $200/month for maintenance, data storage, and hosting</li>
-            <li>AI Automated City Plan Review - starts at $200/month for AI usage, maintenance, data storage, and hosting</li>
+            <li>AI Automated City Plan Review - starts at $200/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
         </ul>
     </div>
     <div class="pricing-card">
