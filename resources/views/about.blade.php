@@ -6,8 +6,8 @@
     <div class="about-card">
         <img src="{{asset('images/Alex_Headshot.jpg')}}" alt="Alex Cutler Headshot" class="headshot">
         <h4>Alex Cutler</h4>
-        <b>CEO/Owner</b>
-        <p>Alex is the software brains behind Cutler Code.  He graduated from Utah Tech University with a BS in Software Engineering.</p>
+        <b>CEO/Owner/Founder</b>
+        <p>Alex is the software brains behind Cutler Code.  He graduated from Utah Tech University with a BS in Software Engineering and is currently pursuing a Master of Computer Science degree at Utah Valley University.</p>
     </div>
 </div>
 <style>

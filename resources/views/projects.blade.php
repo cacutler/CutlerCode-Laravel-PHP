@@ -7,14 +7,14 @@
         <h2>Cutler Code Website</h2>
         <a href="https://github.com/CutlerCode/CutlerCode-Laravel-PHP"><img src="{{asset('images/CutlerCodeProject.png')}}" alt="Cutler Code Website link" class="project-image"></a>
         <b>Web Development</b>
-        <p>Stack: Laravel</p>
+        <p>Stack: Laravel and PHP</p>
         <p>Developer: Alex Cutler</p>
     </div>
     <div class="project-card">
         <h2>Park Reservations</h2>
         <a href="https://github.com/cacutler/Park-Reservations-CSharp-ASPNet"><img src="{{asset('images/ParkReservationsProject.png')}}" alt="Park Reservations Github Repository Link" class="project-image"></a>
         <b>Web Development</b>
-        <p>Stack: C#, ASP.Net, and Razor</p>
+        <p>Stack: C#, .NET/ASP.NET, and Razor</p>
         <p>Developer: Alex Cutler</p>
     </div>
 </div>

@@ -41,7 +41,7 @@
         <h3>Software Consulting</h3>
         <p>Professional guidance of software planning, designing, and implementation that drives real results.</p>
         <ul>
-            <li>Hourly rate starting at $25/hour.</li>
+            <li>Hourly rate starting at $25/hour</li>
             <li>Software architecture and system design</li>
             <li>Cloud migration and infrastructure planning</li>
             <li>Custom app development strategy</li>
@@ -62,6 +62,7 @@
         <h3>IT Services</h3>
         <p>Professional help with basic computer work like printer connections, storage work, etc. and learning basic computer skills like keyboard shortcuts.</p>
         <ul>
+            <li>Hourly rate starting at $25/hour</li>
             <li>Printer connections for computers (covers driver downloads)</li>
             <li>Basic computer skills like researching/googling, basic setting configuring, etc.</li>
             <li>OS (operating system) updates</li>

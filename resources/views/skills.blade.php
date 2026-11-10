@@ -1,14 +1,14 @@
 @extends('master')
 @section('title', 'Skills and Tech Stacks')
 @section('content')
-<h1>Team Skillset and Tech Stack</h1>
+<h1>Team Skillset and Tech Stacks</h1>
 <div class="grid-container">
     <div class="skill-card">
         <h4 class="title">Alex Cutler</h4>
-        <small><b>CEO/Owner</b></small>
+        <small><b>CEO/Owner/Founder</b></small>
         <div class="card-lists">
             <div class="left-side">
-                <b>Stack</b>
+                <b>Stacks</b>
                 <ul>
                     <li>MEVN - MongoDB, Express, Vue, and Node</li>
                     <li>MEAN - MongoDB, Express, Angular, and Node</li>
@@ -51,7 +51,7 @@
                     <li>Laravel (PHP)</li>
                     <li>Unity (C#)</li>
                     <li>Wordpress (PHP)</li>
-                    <li>ASP.Net (C#)</li>
+                    <li>.NET/ASP.NET (C#)</li>
                     <li>Spring/Spring Boot (Java)</li>
                 </ul>
             </div>
