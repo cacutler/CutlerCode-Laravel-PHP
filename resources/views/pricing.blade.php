@@ -2,7 +2,7 @@
 @section('title', 'Pricing')
 @section('content')
 <h1>Pricing</h1>
-<p>Hourly rate starts at $30/hour for software work and $25/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
+<p>Hourly rates start at $30/hour for software work and $25/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
 <div class="grid">
     <div class="pricing-card">
         <h3>Websites</h3>
@@ -54,8 +54,8 @@
         <h3>Software Tools and Offerings</h3>
         <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
         <ul>
-            <li>Park Reservations - starts at $200/month for maintenance, data storage, and hosting</li>
-            <li>AI Automated City Plan Review - starts at $200/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
+            <li>Park Reservations - starts at $300/month for maintenance, data storage, and hosting</li>
+            <li>AI Automated City Plan Review - starts at $400/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
         </ul>
     </div>
     <div class="pricing-card">
@@ -63,7 +63,7 @@
         <p>Professional help with basic computer work like printer connections, storage work, etc. and learning basic computer skills like keyboard shortcuts.</p>
         <ul>
             <li>Hourly rate starting at $25/hour</li>
-            <li>Printer connections for computers (covers driver downloads)</li>
+            <li>Printer connections for computers (includes driver downloads and installations)</li>
             <li>Basic computer skills like researching/googling, basic setting configuring, etc.</li>
             <li>OS (operating system) updates</li>
             <li>Storage cleanup/backup</li>

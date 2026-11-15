@@ -41,7 +41,6 @@
         width: 100%;
         height: auto;
         margin: 0.5rem auto;
-        border: 1px solid black;
         border-radius: 6px;
     }
     p {
