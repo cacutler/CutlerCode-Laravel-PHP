@@ -6,7 +6,7 @@
     <div class="software-card">
         <h3>Park Reservations</h3>
         <a href="https://github.com/cacutler/Park-Reservations-CSharp-ASPNet"><img src="{{asset('images/ParkReservationsProject.png')}}" alt="Park Reservations Github Repository Link" class="tool-image"></a>
-        <p><b>Pricing:</b> $300/month</p>
+        <p><b>Pricing:</b> $400/month</p>
         <h4>Features</h4>
         <ul>
             <li>City admins approve or deny reservation requests for city parks they oversee</li>
@@ -18,7 +18,7 @@
     <div class="software-card">
         <h3>AI Automated City Plan Review</h3>
         <a href="https://github.com/cacutler/AI-Subdivision-Plan-Review-FastAPI-React"><img src="{{ asset('images/SubdivisionPlan.png') }}" alt="AI Automated City Plan Review Github Repository Link" class="tool-image"></a>
-        <p><b>Pricing:</b> $400/month</p>
+        <p><b>Pricing:</b> $500/month</p>
         <h4>Features</h4>
         <ul>
             <li>Engineers can upload PDFs for analysis and store those files with the results</li>

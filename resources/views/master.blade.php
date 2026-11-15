@@ -17,7 +17,7 @@
         <header>
             <nav id="navbar">
                 <div>
-                    <a href="{{route('home')}}" class="{{request()->routeIs('home') ? 'active' : ''}}"><img src="{{asset('images/logo.svg')}}" alt="Logo" id="logo"></a>
+                    <a href="{{route('home')}}" class="{{request()->routeIs('home') ? 'active' : ''}}"><img src="{{asset('images/logo.svg')}}" alt="Cutler Code CC Logo" id="logo"></a>
                 </div>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -54,12 +54,10 @@
                 <div id="auth-nav">
                     @auth
                         <span>Welcome back, {{Auth::user()->name}}!</span>
-                        <li>
-                            <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <button type="submit" name="submit" class="btn btn-outline submit">Logout</button>
-                            </form>
-                        </li>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" name="submit" class="btn btn-outline submit">Log Out</button>
+                        </form>
                     @endauth
                 </div>
             </nav>

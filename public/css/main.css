@@ -182,9 +182,6 @@ footer {
         order: 2;
         margin-left: auto;
     }
-    #auth-nav span {
-        display: none;
-    }
     #requests-form {
         width: 100%;
     }

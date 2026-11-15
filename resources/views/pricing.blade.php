@@ -41,7 +41,7 @@
         <h3>Software Consulting</h3>
         <p>Professional guidance of software planning, designing, and implementation that drives real results.</p>
         <ul>
-            <li>Hourly rate starting at $25/hour</li>
+            <li>Hourly rate starting at $30/hour</li>
             <li>Software architecture and system design</li>
             <li>Cloud migration and infrastructure planning</li>
             <li>Custom app development strategy</li>
@@ -54,8 +54,8 @@
         <h3>Software Tools and Offerings</h3>
         <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
         <ul>
-            <li>Park Reservations - starts at $300/month for maintenance, data storage, and hosting</li>
-            <li>AI Automated City Plan Review - starts at $400/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
+            <li>Park Reservations - starts at $400/month for maintenance, data storage, and hosting</li>
+            <li>AI Automated City Plan Review - starts at $500/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
         </ul>
     </div>
     <div class="pricing-card">
