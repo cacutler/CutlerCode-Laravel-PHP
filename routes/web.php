@@ -32,6 +32,8 @@ Route::middleware('guest')->group(function (): void {// Authentication routes (o
 });
 Route::middleware('auth')->group(function (): void {// Authenticated user routes
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/my-requests', [RequestsController::class, 'myIndex'])->name('requests.mine');
+    Route::get('/my-requests/{projectRequest}', [RequestsController::class, 'myShow'])->name('requests.mine.show');
 });
 Route::middleware(['auth', 'admin'])->group(function (): void {// Protected routes (require authentication and admin role)
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

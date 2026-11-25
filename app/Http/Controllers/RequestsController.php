@@ -37,7 +37,9 @@ class RequestsController extends Controller {
             'service' => ['nullable', 'string', Rule::enum(ServiceType::class)],
             'tool' => ['nullable', 'string', Rule::enum(ToolType::class)]
         ]);// Validate the incoming request
-        $newRequest = Requests::create($validatedData);// Create the new request record
+        $newRequest = $request->user()
+            ? $request->user()->requests()->create($validatedData)
+            : Requests::create($validatedData);// Create the new request record
         $this->sendNewRequestNotification($newRequest);// Send notification to admin users
         return redirect()->back()->with('success', 'Your project request has been submitted successfully!');// Redirect back with success message
     }
@@ -47,14 +49,30 @@ class RequestsController extends Controller {
     public function index(): View {
         $requests = Requests::latest('created_at')->paginate(15);
         $statusOptions = Requests::getStatusOptions();
-        return view('requests.index', compact('requests', 'statusOptions'));
+        return view('requests.index', compact('requests', 'statusOptions'), ['isAdmin' => true]);
+    }
+    /**
+     * Display requests submitted by the authenticated user
+     */
+    public function myIndex(): View {
+        $requests = Auth::user()->requests()->latest('created_at')->paginate(15);
+        $statusOptions = Requests::getStatusOptions();
+        return view('requests.index', compact('requests', 'statusOptions'), ['isAdmin' => false]);
     }
     /**
      * Display a specific project request
      */
     public function show(Requests $projectRequest): View {
         $statusOptions = Requests::getStatusOptions();
-        return view('requests.show', ['projectRequest' => $projectRequest, 'statusOptions' => $statusOptions, 'request' => $projectRequest]);
+        return view('requests.show', ['projectRequest' => $projectRequest, 'statusOptions' => $statusOptions, 'request' => $projectRequest, 'isAdmin' => true]);
+    }
+    /**
+     * Display one of the authenticated user's requests
+     */
+    public function myShow(int $projectRequest): View {
+        $request = Auth::user()->requests()->findOrFail($projectRequest);
+        $statusOptions = Requests::getStatusOptions();
+        return view('requests.show', ['projectRequest' => $request, 'statusOptions' => $statusOptions, 'request' => $request, 'isAdmin' => false]);
     }
     /**
      * Update request status

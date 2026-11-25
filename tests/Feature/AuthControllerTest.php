@@ -19,6 +19,12 @@ class AuthControllerTest extends TestCase {
         $response->assertSessionHas('success', 'Welcome back!');
         $this->assertAuthenticatedAs($user);
     }
+    public function test_regular_user_login_redirects_to_their_requests(): void {
+        $user = User::factory()->create(['email' => 'regular@example.com', 'password' => Hash::make('password123'), 'is_admin' => false]);
+        $this->post('/login', ['email' => 'regular@example.com', 'password' => 'password123'])
+            ->assertRedirect(route('requests.mine'));
+        $this->assertAuthenticatedAs($user);
+    }
     public function test_user_cannot_login_with_invalid_credentials(): void {
         User::factory()->create(['email' => 'test@example.com', 'password' => Hash::make('password123')]);
         $response = $this->post('/login', ['email' => 'test@example.com', 'password' => 'wrongpassword']);
@@ -33,8 +39,8 @@ class AuthControllerTest extends TestCase {
     }
     public function test_user_can_register_with_valid_data(): void {
         $response = $this->post('/register', ['name' => 'John Doe', 'email' => 'john@example.com', 'password' => 'password123', 'password_confirmation' => 'password123']);
-        $response->assertRedirect('/dashboard');
-        $response->assertSessionHas('success', 'Registration successful! Welcome to your dashboard.');
+        $response->assertRedirect(route('requests.mine'));
+        $response->assertSessionHas('success', 'Registration successful! Welcome to your requests.');
         $this->assertDatabaseHas('users', ['name' => 'John Doe', 'email' => 'john@example.com']);
         $user = User::where('email', '=', 'john@example.com', 'and')->first();
         $this->assertAuthenticatedAs($user);

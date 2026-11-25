@@ -24,6 +24,7 @@ This is a Laravel-based business website for Cutler Code, a future software deve
 
 - User registration and authentication system
 - Project request submission form with detailed fields
+- Signed-in users can view their own submitted requests; admins can view all requests
 - Admin dashboard for managing client requests
 - Notification system for updates on requests
 - Responsive design optimized for desktop and mobile
@@ -128,6 +129,8 @@ For frontend development with hot reloading:
 npm run dev
 ```
 
+Requests submitted while signed in are associated with that account and available from **My Requests**. Public/guest submissions are not assigned to an account and remain visible only to admins.
+
 ## Testing
 
 The project includes unit and feature tests using PHPUnit. To run the test suite:
@@ -195,6 +198,7 @@ For questions, support, or business inquiries:
 ### Requests
 
 - ID: bigint unsigned and primary key
+- User ID (user_id): nullable foreign key to users; set when a signed-in user submits a request
 - Name: varchar(255)
 - Goal: text
 - Email: varchar(255)
@@ -249,6 +253,8 @@ For questions, support, or business inquiries:
 | Create user member                      | POST   | /register                                 | N/A               | register.post               | AuthController - register                  |
 | Delete user session                     | POST   | /logout                                   | N/A               | logout                      | AuthController - logout                    |
 | Retrieve dashboard page                 | GET    | /dashboard                                | Auth, Admin       | dashboard                   | DashboardController - index                |
+| Retrieve own requests                   | GET    | /my-requests                              | Auth              | requests.mine               | RequestsController - myIndex              |
+| Retrieve own request                    | GET    | /my-requests/{*request*}                  | Auth              | requests.mine.show          | RequestsController - myShow               |
 | Retrieve requests collection            | GET    | /admin/requests                           | Auth, Admin       | requests.index              | RequestController - index                  |
 | Retrieve request member                 | GET    | /admin/requests/{*request*}               | Auth, Admin       | requests.show               | RequestController - show                   |
 | Delete request member                   | DELETE | /admin/requests/{*request*}               | Auth, Admin       | requests.destroy            | RequestController - destroy                |

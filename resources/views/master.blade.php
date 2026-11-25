@@ -37,6 +37,7 @@
                             <li><a href="{{route('register')}}" class="{{request()->routeIs('register') ? 'active' : ''}}">Register</a></li>
                         @endguest
                         @auth
+                            <li><a href="{{route('requests.mine')}}" class="{{request()->routeIs('requests.mine*') ? 'active' : ''}}">My Requests</a></li>
                             @if (Auth::user() && Auth::user()->is_admin)
                                 <li><a href="{{route('dashboard')}}" class="{{request()->routeIs('dashboard') ? 'active' : ''}}">Dashboard</a></li>
                                 <li class="notification-menu">

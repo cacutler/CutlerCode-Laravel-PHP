@@ -34,6 +34,19 @@ class RequestsControllerTest extends TestCase {
         $this->assertDatabaseHas('requests', ['name' => 'John Doe', 'email' => 'john@example.com', 'status' => 'pending']);
         Notification::assertSentTo($admin, NewRequest::class);
     }
+    public function test_authenticated_submission_is_associated_with_the_user(): void {
+        /** @var \App\Models\User $user */
+        $user = User::factory()->create(['is_admin' => false]);
+        $this->actingAs($user)->post('/requests', [
+            'name' => 'Jane Doe',
+            'goal' => 'Build a web application',
+            'email' => 'jane@example.com'
+        ])->assertRedirect();
+        $this->assertDatabaseHas('requests', [
+            'email' => 'jane@example.com',
+            'user_id' => $user->id
+        ]);
+    }
     public function test_request_submission_requires_required_fields(): void {
         $response = $this->post('/requests', []);
         $response->assertSessionHasErrors(['name', 'goal', 'email']);
@@ -46,6 +59,37 @@ class RequestsControllerTest extends TestCase {
         $response->assertStatus(200);
         $response->assertViewIs('requests.index');
         $response->assertViewHas(['requests', 'statusOptions']);
+        $response->assertViewHas('requests', fn ($requests) => $requests->total() === 3);
+    }
+    public function test_regular_user_sees_only_their_own_requests(): void {
+        /** @var \App\Models\User $user */
+        $user = User::factory()->create(['is_admin' => false]);
+        $ownRequest = $user->requests()->create(Requests::factory()->raw());
+        Requests::factory()->create();
+        Requests::factory()->create();
+        $response = $this->actingAs($user)->get('/my-requests');
+        $response->assertOk();
+        $response->assertViewIs('requests.index');
+        $response->assertViewHas('requests', fn ($requests) => $requests->total() === 1 && $requests->first()->is($ownRequest));
+    }
+    public function test_regular_user_can_view_only_their_own_request_details(): void {
+        /** @var \App\Models\User $user */
+        $user = User::factory()->create(['is_admin' => false]);
+        $ownRequest = $user->requests()->create(Requests::factory()->raw());
+        $otherRequest = Requests::factory()->create();
+        $this->actingAs($user)->get("/my-requests/{$ownRequest->id}")
+            ->assertOk()
+            ->assertViewIs('requests.show');
+        $this->get("/my-requests/{$otherRequest->id}")->assertNotFound();
+    }
+    public function test_guest_cannot_access_my_requests(): void {
+        $this->get('/my-requests')->assertRedirect('/login');
+        $this->get('/my-requests/1')->assertRedirect('/login');
+    }
+    public function test_regular_user_cannot_access_admin_request_list(): void {
+        /** @var \App\Models\User $user */
+        $user = User::factory()->create(['is_admin' => false]);
+        $this->actingAs($user)->get('/admin/requests')->assertRedirect(route('home'));
     }
     public function test_authenticated_user_can_view_specific_request(): void {
         /** @var \App\Models\User $user */

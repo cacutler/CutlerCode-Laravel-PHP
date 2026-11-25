@@ -21,7 +21,8 @@ class AuthController extends Controller {
         $credentials = $request->validate(['email' => 'required|email', 'password' => 'required']);
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard')->with('success', 'Welcome back!');
+            $destination = $request->user()->is_admin ? '/dashboard' : route('requests.mine');
+            return redirect()->intended($destination)->with('success', 'Welcome back!');
         }
         return back()->withErrors(['email' => 'The provided credentials do not match our records.'])->onlyInput('email');
     }
@@ -38,7 +39,7 @@ class AuthController extends Controller {
         $request->validate(['name' => 'required|string|max:255', 'email' => 'required|string|email|max:255|unique:users', 'password' => ['required', 'confirmed', Password::defaults()]]);
         $user = User::create(['name' => $request->name, 'email' => $request->email, 'password' => Hash::make($request->password)]);
         Auth::login($user);
-        return redirect('/dashboard')->with('success', 'Registration successful! Welcome to your dashboard.');
+        return redirect()->route('requests.mine')->with('success', 'Registration successful! Welcome to your requests.');
     }
     /**
      * Handle logout request

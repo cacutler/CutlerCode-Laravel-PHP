@@ -4,6 +4,7 @@ use App\ServiceType;
 use App\ToolType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Requests extends Model {
     use HasFactory;
     protected $fillable = [
@@ -27,6 +28,9 @@ class Requests extends Model {
     const STATUS_COMPLETED = 'completed';
     const STATUS_CANCELLED = 'cancelled';
     protected $attributes = ['status' => self::STATUS_PENDING, 'service' => ServiceType::OTHER, 'tool' => ToolType::OTHER];
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
     /**
      * Get available status options
      */

@@ -11,33 +11,37 @@
             </div>
         </div>
         <div class="header-actions">
-            <a href="{{route('requests.index')}}" class="btn btn-outline">← Back to All Requests</a>
-            <form action="{{route('requests.destroy', $request)}}" method="POST" class="delete-form" style="display: inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this request? This action cannot be undone.')">Delete Request</button>
-            </form>
+            <a href="{{$isAdmin ? route('requests.index') : route('requests.mine')}}" class="btn btn-outline">← Back to {{$isAdmin ? 'All Requests' : 'My Requests'}}</a>
+            @if($isAdmin)
+                <form action="{{route('requests.destroy', $request)}}" method="POST" class="delete-form" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this request? This action cannot be undone.')">Delete Request</button>
+                </form>
+            @endif
         </div>
     </div>
     @if(session('success'))
         <div class="alert alert-success">{{session('success')}}</div>
     @endif
     <div class="request-content">
-        <div class="status-section">
-            <h2>Update Status</h2>
-            <form action="{{route('requests.updateStatus', $request)}}" method="POST" class="status-update-form">
-                @csrf
-                @method('PATCH')
-                <div class="form-group">
-                    <select name="status" class="status-select-large">
-                        @foreach($statusOptions as $value => $label)
-                            <option value="{{$value}}" {{$request->status === $value ? 'selected' : ''}}>{{$label}}</option>
-                        @endforeach
-                    </select>
-                    <button type="submit" class="btn btn-primary">Update Status</button>
-                </div>
-            </form>
-        </div>
+        @if($isAdmin)
+            <div class="status-section">
+                <h2>Update Status</h2>
+                <form action="{{route('requests.updateStatus', $request)}}" method="POST" class="status-update-form">
+                    @csrf
+                    @method('PATCH')
+                    <div class="form-group">
+                        <select name="status" class="status-select-large">
+                            @foreach($statusOptions as $value => $label)
+                                <option value="{{$value}}" {{$request->status === $value ? 'selected' : ''}}>{{$label}}</option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-primary">Update Status</button>
+                    </div>
+                </form>
+            </div>
+        @endif
         <div class="info-section">
             <h2>Contact Information</h2>
             <div class="info-grid">

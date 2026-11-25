@@ -1,10 +1,12 @@
 @extends('master')
-@section('title', 'All Requests')
+@section('title', $isAdmin ? 'All Requests' : 'My Requests')
 @section('content')
 <div class="requests-admin">
     <div class="page-header">
-        <h1>All Project Requests</h1>
-        <div class="header-actions"><a href="{{route('dashboard')}}" class="btn btn-outline">← Back to Dashboard</a></div>
+        <h1>{{$isAdmin ? 'All Project Requests' : 'My Project Requests'}}</h1>
+        @if($isAdmin)
+            <div class="header-actions"><a href="{{route('dashboard')}}" class="btn btn-outline">← Back to Dashboard</a></div>
+        @endif
     </div>
     @if(session('success'))
         <div class="alert alert-success">{{session('success')}}</div>
@@ -33,9 +35,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Organization</th>
-                        <th>Email</th>
+                        @if($isAdmin)
+                            <th>Name</th>
+                            <th>Organization</th>
+                            <th>Email</th>
+                        @endif
                         <th>Goal</th>
                         <th>Service</th>
                         <th>Tool</th>
@@ -48,31 +52,39 @@
                     @foreach($requests as $request)
                         <tr>
                             <td>#{{$request->id}}</td>
-                            <td>{{$request->name}}</td>
-                            <td>{{$request->company_name ?? 'N/A'}}</td>
-                            <td>{{$request->email}}</td>
+                            @if($isAdmin)
+                                <td>{{$request->name}}</td>
+                                <td>{{$request->company_name ?? 'N/A'}}</td>
+                                <td>{{$request->email}}</td>
+                            @endif
                             <td>{{Str::limit($request->goal, 40)}}</td>
                             <td>{{$request->service}}</td>
                             <td>{{$request->tool}}</td>
                             <td>
-                                <form action="{{route('requests.updateStatus', $request)}}" method="POST" class="status-form">
-                                    @csrf
-                                    @method('PATCH')
-                                    <select name="status" onchange="this.form.submit()" class="status-select {{$request->getStatusBadgeClass()}}">
-                                        @foreach($statusOptions as $value => $label)
-                                            <option value="{{$value}}" {{$request->status === $value ? 'selected' : ''}}>{{$label}}</option>
-                                        @endforeach
-                                    </select>
-                                </form>
+                                @if($isAdmin)
+                                    <form action="{{route('requests.updateStatus', $request)}}" method="POST" class="status-form">
+                                        @csrf
+                                        @method('PATCH')
+                                        <select name="status" onchange="this.form.submit()" class="status-select {{$request->getStatusBadgeClass()}}">
+                                            @foreach($statusOptions as $value => $label)
+                                                <option value="{{$value}}" {{$request->status === $value ? 'selected' : ''}}>{{$label}}</option>
+                                            @endforeach
+                                        </select>
+                                    </form>
+                                @else
+                                    <span class="badge {{$request->getStatusBadgeClass()}}">{{ucfirst(str_replace('_', ' ', $request->status))}}</span>
+                                @endif
                             </td>
                             <td>{{$request->created_at->format('M j, Y')}}</td>
                             <td class="actions">
-                                <a href="{{route('requests.show', $request)}}" class="btn btn-sm btn-primary">View</a>
-                                <form action="{{route('requests.destroy', $request)}}" method="POST" class="delete-form" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this request?')">Delete</button>
-                                </form>
+                                <a href="{{$isAdmin ? route('requests.show', $request) : route('requests.mine.show', $request)}}" class="btn btn-sm btn-primary">View</a>
+                                @if($isAdmin)
+                                    <form action="{{route('requests.destroy', $request)}}" method="POST" class="delete-form" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this request?')">Delete</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -84,7 +96,7 @@
         <div class="empty-state">
             <div class="empty-icon">📋</div>
             <h3>No Requests Yet</h3>
-            <p>When people submit project requests, they'll appear here.</p>
+            <p>{{$isAdmin ? "When people submit project requests, they'll appear here." : "Requests you submit while signed in will appear here."}}</p>
             <a href="{{route('requests.create')}}" class="btn btn-primary">View Request Form</a>
         </div>
     @endif
