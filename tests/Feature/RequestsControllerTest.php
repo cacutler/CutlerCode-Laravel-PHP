@@ -12,6 +12,14 @@ class RequestsControllerTest extends TestCase {
         $response = $this->get('/requests');
         $response->assertStatus(200);
         $response->assertViewIs('requests');
+        $response->assertSee(route('login'));
+        $response->assertSee(route('register'));
+        $response->assertSee('Guest requests cannot be linked later.');
+    }
+    public function test_signed_in_user_is_told_the_request_will_be_linked(): void {
+        /** @var \App\Models\User $user */
+        $user = User::factory()->create(['is_admin' => false]);
+        $this->actingAs($user)->get('/requests')->assertOk()->assertSee('This request will be linked to your account.')->assertSee(route('requests.mine'));
     }
     public function test_guest_can_submit_valid_request(): void {
         Notification::fake();

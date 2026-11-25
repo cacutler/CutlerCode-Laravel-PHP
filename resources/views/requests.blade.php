@@ -14,6 +14,11 @@
 @if(session('error'))
     <div class="alert alert-danger">{{session('error')}}</div>
 @endif
+@guest
+    <div class="alert alert-info">To have this request linked to your account, <a href="{{route('login')}}">log in</a> or <a href="{{route('register')}}">create an account</a> before submitting. Guest requests cannot be linked later.</div>
+@else
+    <div class="alert alert-info">This request will be linked to your account. You can view it later under <a href="{{route('requests.mine')}}">My Requests</a>.</div>
+@endguest
 <form action="{{route('requests.store')}}" method="POST" id="requests-form">
     @csrf
     <label for="name">Name *</label>
