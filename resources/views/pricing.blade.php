@@ -2,71 +2,64 @@
 @section('title', 'Pricing')
 @section('content')
 <h1>Pricing</h1>
-<p>Hourly rates start at $30/hour for software work and $25/hour for IT work.  The software work hourly rate is used for projects with unclear or shifting scopes or applying frequent iterations, revisions, or updates to projects.</p>
+<p>Software development & consulting starts at $45/hour (currently offering a $35/hour introductory rate for select new clients), and IT support starts at $25/hour. Hourly billing applies to ongoing updates, custom consulting, and projects with evolving scopes.</p>
 <div class="grid">
     <div class="pricing-card">
         <h3>Websites</h3>
-        <p>High-quality development of websites with the most modern and high-quality design made at a professional level.</p>
+        <p>Modern, responsive websites designed to help individuals and small businesses stand out online.</p>
         <ul>
-            <li>Single person and small groups starting at $500/project</li>
-            <li>Small businesses starting at $750/project</li>
-            <li>Designing website theme and brand</li>
-            <li>Content Creation</li>
-            <li>Website/Content Maintance and Hosting - seperate small fee of $35 charged per month for making sure the software and content is up to date and the site remains online</li>
+            <li>Landing Page / Starter Site: Starting at $500 (1–2 pages, mobile-friendly design, contact form)</li>
+            <li>Small Business Website: Starting at $850 (up to 5 pages, custom theme & branding, basic SEO setup)</li>
+            <li>Scope & Revisions: Includes initial copy/content integration and up to 2 rounds of revisions</li>
+            <li>Hosting & Maintenance: Optional $35/month plan covering hosting, uptime monitoring, security updates, and minor text/image edits (up to 1 hour/month)</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Web Applications</h3>
-        <p>High-quality development of web applications at the professional level.</p>
+        <p>Custom full-stack web applications built for reliability, speed, and clean user workflows.</p>
         <ul>
-            <li>Single person and small groups starting at $650/project</li>
-            <li>Small businesses starting at $1000/project</li>
-            <li>Database</li>
-            <li>Back-end Server</li>
-            <li>Front-end User Interface</li>
-            <li>Web Application Maintance and Hosting - seperate small fee of $40 charged per month for making sure the software is up to date and working and the site remains online</li>
+            <li>Single-Purpose / Starter MVP: Starting at $1,000</li>
+            <li>Small Business Custom App: Starting at $1,500+ (scoped by milestone)</li>
+            <li>Full-Stack Architecture: Custom front-end interface, back-end API/server logic, and database setup</li>
+            <li>Hosting & Maintenance: Optional $45/month base plan covering server hosting, database backups, and routine bug/dependency updates (cloud/API usage billed at cost if exceeded)</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Mobile Applications</h3>
-        <p>Professional development of mobile applications for iOS and Android.</p>
+        <p>Cross-platform and native mobile apps built for iOS and Android.</p>
         <ul>
-            <li>Single person and small groups starting at $800/project</li>
-            <li>Small businesses starting at $1250/project</li>
-            <li>Cross platform apps for both iOS and Android using Flutter or React Native</li>
-            <li>Fully native platform apps using Swift/Swift for iOS or Kotlin/Jetpack Compose for Android</li>
+            <li>Starter / Companion App: Starting at $1,200/li>
+            <li>Custom Business App: Starting at $2,000+ (scoped by milestone)</li>
+            <li>Cross-Platform Development: Single codebase for iOS and Android using Flutter or React Native</li>
+            <li>Native Development: Platform-specific performance using Swift / SwiftUI (iOS) and Kotlin / Jetpack Compose (Android)</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Software Consulting</h3>
-        <p>Professional guidance of software planning, designing, and implementation that drives real results.</p>
+        <p>Technical guidance to help you plan, integrate, and improve your software systems.</p>
         <ul>
-            <li>Hourly rate starting at $30/hour</li>
-            <li>Software architecture and system design</li>
-            <li>Cloud migration and infrastructure planning</li>
-            <li>Custom app development strategy</li>
-            <li>API integration and automation</li>
-            <li>Performance optimization and scalability planning</li>
-            <li>Agile process and DevOps consulting</li>
+            <li>Rate: Starting at $45/hour ($35/hour introductory rate)</li>
+            <li>Architecture & Planning: System design, tech stack selection, and MVP roadmapping</li>
+            <li>Integrations & Automation: Connecting third-party APIs, automating workflows, and reducing manual data entry</li>
+            <li>Cloud & Optimization: Cloud setup/migration, performance tuning, and DevOps workflow improvements</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>Software Tools and Offerings</h3>
-        <p>Each tool is individually priced based on factors like operating and data storage costs.</p>
+        <p>Specialized software solutions tailored to operational and municipal workflows. (Pricing scales based on user volume, data storage, and AI/compute usage.)</p>
         <ul>
-            <li>Park Reservations - starts at $400/month for maintenance, data storage, and hosting</li>
-            <li>AI Automated City Plan Review - starts at $500/month for AI usage, maintenance, data storage, and hosting (work in progress)</li>
+            <li>Park Reservations System: Starting at $400/month (includes hosting, data storage, and ongoing maintenance)</li>
+            <li>AI Automated City Plan Review: Starting at $500/month (base license, hosting, and maintenance; high-volume AI processing billed by usage) — Currently in active development</li>
         </ul>
     </div>
     <div class="pricing-card">
         <h3>IT Services</h3>
-        <p>Professional help with basic computer work like printer connections, storage work, etc. and learning basic computer skills like keyboard shortcuts.</p>
+        <p>Patient, reliable hands-on tech help for everyday computer, network, and device tasks.</p>
         <ul>
-            <li>Hourly rate starting at $25/hour</li>
-            <li>Printer connections for computers (includes driver downloads and installations)</li>
-            <li>Basic computer skills like researching/googling, basic setting configuring, etc.</li>
-            <li>OS (operating system) updates</li>
-            <li>Storage cleanup/backup</li>
+            <li>Rate: Starting at $25/hour (1-hour minimum for on-site visits)</li>
+            <li>Device & Printer Setup: Computer setup, printer connections, and driver installations</li>
+            <li>System Upkeep: Operating system updates, storage cleanup, and cloud/external backups</li>
+            <li>1-on-1 Tech Coaching: Guided help with everyday computer skills, settings, software tools, and productivity shortcuts</li>
         </ul>
     </div>
 </div>
